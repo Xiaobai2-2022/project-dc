@@ -29,7 +29,7 @@ class UserManager:
                     (display, discord_id)
                 )
                 connection.commit()
-                return f"✅ Updated display name for {mention} to {display}!"
+                return f"✅ Updated display name for {mention} to \"{display}\"!"
 
             # Insert new user
             cursor.execute(
@@ -37,7 +37,7 @@ class UserManager:
                 (discord_id, display)
             )
             connection.commit()
-            return f"✅ Registered {mention} as {display} successfully!"
+            return f"✅ Registered {mention} as \"{display}\" successfully!"
 
         except sql.Error as err:
             print(f"MySQL Error: {err}")
@@ -78,7 +78,7 @@ class UserManager:
                     (channel, user_id)
                 )
                 connection.commit()
-                return f"✅ Updated channel name for {mention} to {channel}!"
+                return f"✅ Updated channel name for {mention} to \"{channel}\"!"
 
             # Insert new channel name
             cursor.execute(
@@ -86,7 +86,7 @@ class UserManager:
                 (user_id, channel)
             )
             connection.commit()
-            return f"✅ Registered {channel} for {mention} successfully!"
+            return f"✅ Registered \"{channel}\" for {mention} successfully!"
 
         except sql.Error as err:
             print(f"MySQL Error: {err}")
